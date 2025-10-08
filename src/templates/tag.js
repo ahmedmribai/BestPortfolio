@@ -47,6 +47,11 @@ const StyledTagsContainer = styled.main`
 
 const TagTemplate = ({ pageContext, data, location }) => {
   const { tag } = pageContext;
+
+  if (!data || !data.allMarkdownRemark) {
+    return null;
+  }
+
   const { edges } = data.allMarkdownRemark;
 
   return (
@@ -124,7 +129,7 @@ TagTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($tag: String!) {
+  query ($tag: String!) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
