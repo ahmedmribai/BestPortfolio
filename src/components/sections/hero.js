@@ -6,7 +6,7 @@ import { usePrefersReducedMotion } from '@hooks';
 import useParallax from '../../hooks/useParallax';
 import Typewriter from '../typewriter';
 import ScrollIndicator from '../scrollIndicator';
-import { GradientText, GlassCard } from '../glassmorphism';
+import { GradientText } from '../glassmorphism';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -22,7 +22,7 @@ const StyledHeroSection = styled.section`
     height: auto;
     padding-top: var(--nav-height);
   }
-  
+
   @media (max-width: 768px) {
     padding: 0 20px;
   }
@@ -53,7 +53,7 @@ const StyledHeroSection = styled.section`
     margin-top: 5px;
     color: var(--slate);
     line-height: 0.9;
-    
+
     @media (max-width: 768px) {
       font-size: clamp(18px, 5vw, 22px);
       line-height: 1.1;
@@ -63,7 +63,7 @@ const StyledHeroSection = styled.section`
   p {
     margin: 20px 0 0;
     max-width: 540px;
-    
+
     @media (max-width: 768px) {
       max-width: 100%;
       font-size: clamp(15px, 4vw, 18px);
@@ -112,12 +112,12 @@ const FloatingCode = styled.div`
   opacity: 0.3;
   animation: float 20s infinite linear;
   pointer-events: none;
-  
+
   @media (max-width: 768px) {
     font-size: 12px;
     opacity: 0.2;
   }
-  
+
   @keyframes float {
     from {
       transform: translateX(-100px) translateY(0) rotate(0deg);
@@ -126,13 +126,37 @@ const FloatingCode = styled.div`
       transform: translateX(calc(100vw + 100px)) translateY(-20px) rotate(360deg);
     }
   }
-  
-  &:nth-child(1) { top: 15%; left: -100px; animation-duration: 18s; }
-  &:nth-child(2) { top: 30%; left: -100px; animation-duration: 22s; animation-delay: 2s; }
-  &:nth-child(3) { top: 50%; left: -100px; animation-duration: 20s; animation-delay: 4s; }
-  &:nth-child(4) { top: 70%; left: -100px; animation-duration: 24s; animation-delay: 6s; }
-  &:nth-child(5) { top: 85%; left: -100px; animation-duration: 19s; animation-delay: 8s; }
-  
+
+  &:nth-child(1) {
+    top: 15%;
+    left: -100px;
+    animation-duration: 18s;
+  }
+  &:nth-child(2) {
+    top: 30%;
+    left: -100px;
+    animation-duration: 22s;
+    animation-delay: 2s;
+  }
+  &:nth-child(3) {
+    top: 50%;
+    left: -100px;
+    animation-duration: 20s;
+    animation-delay: 4s;
+  }
+  &:nth-child(4) {
+    top: 70%;
+    left: -100px;
+    animation-duration: 24s;
+    animation-delay: 6s;
+  }
+  &:nth-child(5) {
+    top: 85%;
+    left: -100px;
+    animation-duration: 19s;
+    animation-delay: 8s;
+  }
+
   @media (max-width: 480px) {
     display: none;
   }
@@ -183,8 +207,16 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1><GradientText>Hi, my name is</GradientText></h1>;
-  const two = <h2 className="big-heading">Ahmed Mribai<span style={{color: 'var(--green)'}}>.</span></h2>;
+  const one = (
+    <h1>
+      <GradientText>Hi, my name is</GradientText>
+    </h1>
+  );
+  const two = (
+    <h2 className="big-heading">
+      AZIZ GTARI<span style={{ color: 'var(--green)' }}>.</span>
+    </h2>
+  );
   const three = (
     <h3 className="big-heading">
       I build <Typewriter text="web & mobile applications." delay={80} startDelay={2000} />
@@ -193,19 +225,16 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I'm a <GradientText>full stack developer</GradientText> passionate about crafting 
-        exceptional digital experiences that blend <strong>creativity</strong> with <strong>functionality</strong>. 
-        Specializing in <strong>React.js</strong>, <strong>React Native</strong>, and modern web technologies, 
-        I transform ideas into <GradientText>pixel-perfect</GradientText>, performant applications 
-        that users love.
+        I'm a <GradientText>full stack developer</GradientText> passionate about crafting
+        exceptional digital experiences that blend <strong>creativity</strong> with{' '}
+        <strong>functionality</strong>. Specializing in <strong>React.js</strong>,{' '}
+        <strong>React Native</strong>, and modern web technologies, I transform ideas into{' '}
+        <GradientText>pixel-perfect</GradientText>, performant applications that users love.
       </p>
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="#contact"
-      rel="noreferrer">
+    <a className="email-link" href="#contact" rel="noreferrer">
       Get In Touch
     </a>
   );
@@ -217,30 +246,30 @@ const Hero = () => {
       <BackgroundCode />
       <ParallaxContainer $offset={parallaxOffset}>
         {prefersReducedMotion ? (
-        <>
-          {items.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </>
-      ) : (
-        <TransitionGroup component={null}>
-          {isMounted &&
-            items.map((item, i) => {
-              if (!itemRefs.current[i]) itemRefs.current[i] = React.createRef();
-              return (
-                <CSSTransition
-                  key={i}
-                  classNames="fadeup"
-                  timeout={loaderDelay}
-                  nodeRef={itemRefs.current[i]}>
-                  <div ref={itemRefs.current[i]} style={{ transitionDelay: `${i + 1}00ms` }}>
-                    {item}
-                  </div>
-                </CSSTransition>
-              );
-            })}
-        </TransitionGroup>
-      )}
+          <>
+            {items.map((item, i) => (
+              <div key={i}>{item}</div>
+            ))}
+          </>
+        ) : (
+          <TransitionGroup component={null}>
+            {isMounted &&
+              items.map((item, i) => {
+                if (!itemRefs.current[i]) {itemRefs.current[i] = React.createRef();}
+                return (
+                  <CSSTransition
+                    key={i}
+                    classNames="fadeup"
+                    timeout={loaderDelay}
+                    nodeRef={itemRefs.current[i]}>
+                    <div ref={itemRefs.current[i]} style={{ transitionDelay: `${i + 1}00ms` }}>
+                      {item}
+                    </div>
+                  </CSSTransition>
+                );
+              })}
+          </TransitionGroup>
+        )}
       </ParallaxContainer>
       <ScrollIndicator />
     </StyledHeroSection>

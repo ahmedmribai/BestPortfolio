@@ -139,56 +139,64 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['React.js', 'React Native', 'JavaScript (ES6+)', 'HTML5 & CSS3', 'Tailwind CSS', 'Node.js', 'TypeScript', 'RESTful APIs'];
+  const skills = [
+    'React.js',
+    'React Native',
+    'JavaScript (ES6+)',
+    'HTML5 & CSS3',
+    'Tailwind CSS',
+    'Node.js',
+    'TypeScript',
+    'RESTful APIs',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      
-
       <ParallaxContainer $offset={parallaxOffset}>
-      <h2 className="numbered-heading">About Me</h2>
+        <h2 className="numbered-heading">About Me</h2>
         <div className="inner">
-        <StyledText>
-          <div>
-            <p>
-              Hello! My name is Ahmed Mribai and I'm a passionate full stack web and mobile developer.
-              I specialize in creating modern, responsive applications that provide exceptional user
-              experiences across all devices and platforms.
-            </p>
+          <StyledText>
+            <div>
+              <p>
+                Hello! My name is AZIZ GTARI and I'm a passionate full stack web and mobile
+                developer. I specialize in creating modern, responsive applications that provide
+                exceptional user experiences across all devices and platforms.
+              </p>
 
-            <p>
-              My expertise spans both web and mobile development, with a strong focus on React.js for
-              web applications and React Native for mobile apps. I enjoy crafting clean, efficient code
-              and implementing modern UI/UX designs using tools like Tailwind CSS.
-            </p>
+              <p>
+                My expertise spans both web and mobile development, with a strong focus on React.js
+                for web applications and React Native for mobile apps. I enjoy crafting clean,
+                efficient code and implementing modern UI/UX designs using tools like Tailwind CSS.
+              </p>
 
-            <p>
-              I'm constantly learning and staying up-to-date with the latest technologies and best
-              practices in the ever-evolving world of web and mobile development. My goal is to build
-              applications that are not only functional but also intuitive and enjoyable to use.
-            </p>
+              <p>
+                I'm constantly learning and staying up-to-date with the latest technologies and best
+                practices in the ever-evolving world of web and mobile development. My goal is to
+                build applications that are not only functional but also intuitive and enjoyable to
+                use.
+              </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
-          </div>
+              <p>Here are a few technologies I’ve been working with recently:</p>
+            </div>
 
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
-        </StyledText>
+            <ul className="skills-list">
+              {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+            </ul>
+          </StyledText>
 
-        <StyledPic>
-          <div className="wrapper">
-            <StaticImage
-              className="img"
-              src="../../images/me.jpg"
-              width={500}
-              quality={95}
-              formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
-            />
-          </div>
-        </StyledPic>
-      </div>
+          <StyledPic>
+            <div className="wrapper">
+              <StaticImage
+                className="img"
+                src="../../images/me.jpg"
+                width={500}
+                quality={95}
+                formats={['AUTO', 'WEBP', 'AVIF']}
+                alt="Headshot"
+              />
+            </div>
+          </StyledPic>
+        </div>
       </ParallaxContainer>
     </StyledAboutSection>
   );
