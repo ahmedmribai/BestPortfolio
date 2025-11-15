@@ -158,7 +158,7 @@ const About = () => {
           <StyledText>
             <div>
               <p>
-                Hello! My name is AZIZ GTARI and I'm a passionate full stack web and mobile
+                Hello! My name is Ahmed Mribai and I'm a passionate full stack web and mobile
                 developer. I specialize in creating modern, responsive applications that provide
                 exceptional user experiences across all devices and platforms.
               </p>
