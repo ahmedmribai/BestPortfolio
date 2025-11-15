@@ -214,7 +214,7 @@ const Hero = () => {
   );
   const two = (
     <h2 className="big-heading">
-      AZIZ GTARI<span style={{ color: 'var(--green)' }}>.</span>
+      Ahmed Mribai<span style={{ color: 'var(--green)' }}>.</span>
     </h2>
   );
   const three = (
@@ -255,7 +255,9 @@ const Hero = () => {
           <TransitionGroup component={null}>
             {isMounted &&
               items.map((item, i) => {
-                if (!itemRefs.current[i]) {itemRefs.current[i] = React.createRef();}
+                if (!itemRefs.current[i]) {
+                  itemRefs.current[i] = React.createRef();
+                }
                 return (
                   <CSSTransition
                     key={i}
